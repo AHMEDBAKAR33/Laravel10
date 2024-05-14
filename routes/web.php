@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/user',[UsersController::class,'index']);
+
+Route::get('/user/{id}',[UsersController::class,'edit'])->name('edit.user');
+
+Route::put('user/{id}',[UsersController::class,'Update'])->name('update.user');
+
+Route::delete('/user/{id}',[UsersController::class,'delete'])->name('delete.user');
